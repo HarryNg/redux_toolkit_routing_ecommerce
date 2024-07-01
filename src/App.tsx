@@ -12,7 +12,7 @@ import Login from './pages/Login';
 import UserProfile from './pages/UserProfile';
 import AdminProfile from './pages/AdminProfile';
 import NotFound from './pages/NotFound';
-import Navbar from './pages/NavBar';
+// import Navbar from './pages/NavBar';
 import './App.css';
 
 const router = createBrowserRouter(
@@ -33,7 +33,7 @@ const router = createBrowserRouter(
 const App = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <RouterProvider router={router} />
     </div>
   );
