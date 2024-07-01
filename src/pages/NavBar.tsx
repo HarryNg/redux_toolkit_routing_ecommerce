@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -17,6 +17,7 @@ const Navbar = () => {
           <NavLink to="/login">Login</NavLink>
         </li>
       </ul>
+      <div className='content'><Outlet/></div>
     </nav>
   );
 };

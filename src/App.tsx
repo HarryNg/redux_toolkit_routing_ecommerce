@@ -1,9 +1,4 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-  createRoutesFromElements,
-  Route,
-} from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import ProductDetails from './pages/ProductDetails';
@@ -12,30 +7,55 @@ import Login from './pages/Login';
 import UserProfile from './pages/UserProfile';
 import AdminProfile from './pages/AdminProfile';
 import NotFound from './pages/NotFound';
-// import Navbar from './pages/NavBar';
+import Navbar from './pages/NavBar';
 import './App.css';
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <>
-      <Route path="/" element={<Home />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/products/:id" element={<ProductDetails />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/dashboard/user/profile" element={<UserProfile />} />
-      <Route path="/dashboard/admin/profile" element={<AdminProfile />} />
-      <Route path="*" element={<NotFound />} />
-    </>
-  )
-);
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Navbar />,
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+      },
+      {
+        path:"/contact",
+        element:<Contact />
+      },
+      {
+        path:"/products/:id",
+        element:<ProductDetails />
+
+      },
+
+      {
+        path:"/register",
+        element:<Register />
+      },
+      {
+        path:"/login",
+        element:<Login /> 
+      },
+      {
+        path:"/dashboard/user/profile",
+        element:<UserProfile /> 
+      },
+      {
+        path:"/dashboard/admin/profile",
+        element:<AdminProfile /> 
+      },
+      {
+        path:"*",
+        element:<NotFound />
+       },
+    ],
+  },
+]);
 
 const App = () => {
   return (
-    <div>
-      {/* <Navbar /> */}
-      <RouterProvider router={router} />
-    </div>
+    <RouterProvider router={router} />
   );
 };
 
