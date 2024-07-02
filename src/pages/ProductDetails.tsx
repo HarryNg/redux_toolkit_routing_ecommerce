@@ -1,10 +1,10 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { RootState } from '../store';
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const product = useSelector((state) =>
+  const product = useSelector((state:RootState) =>
     state.products.products.find((product) => product.id === Number(id))
   );
 
