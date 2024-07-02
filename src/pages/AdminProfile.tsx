@@ -9,7 +9,7 @@ const AdminProfile = () => {
   return (
     <div>
       <h1>Admin Profile</h1>
-      <p>Username: {user.user}</p>
+      <p>Username: {user.user?.username}</p>
     </div>
   );
 };
